@@ -14,8 +14,8 @@ import User from "./User";
 import AppLink from "../CustomLink";
 
 const pages = [
+  { name: "Meals", path: "/" },
   { name: "Restaurants", path: "/restaurant" },
-  { name: "Pricing", path: "/pricing" },
 ];
 
 function Navbar() {

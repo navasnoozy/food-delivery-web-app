@@ -53,11 +53,10 @@ const User = () => {
         open={Boolean(anchorElUser)}
         onClose={handleCloseUserMenu}
       >
-        <MenuItem>
-          <AppLink to={"/cart"} sx={{ color: "black" }}>
-            Cart
-          </AppLink>
-        </MenuItem>
+        {" "}
+        <AppLink to={"/cart"} sx={{ color: "black" }}>
+          <MenuItem>Cart</MenuItem>
+        </AppLink>
         <MenuItem onClick={() => dispatch(logoutUser())}>
           <Typography sx={{ textAlign: "center" }}>Logout</Typography>
         </MenuItem>

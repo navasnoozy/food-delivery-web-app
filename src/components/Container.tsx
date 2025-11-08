@@ -9,8 +9,6 @@ interface Props {
 const Container = ({ heading, children }: Props) => {
   return (
     <Card
-    className="////////"
-      variant="outlined"
       sx={{
         p: 4,
         width: { xs: "90%", sm: "fit-content" },
@@ -18,8 +16,7 @@ const Container = ({ heading, children }: Props) => {
         borderRadius: "8px",
         display: "inline-block",
         // matching glow color for your theme (#f44336)
-        boxShadow: "0 1px 8px rgba(244, 67, 54, 0.6)",
-        border: "1px solid rgba(244, 67, 54, 0.5)", // subtle border to match glow
+        boxShadow: "0 0.3px 0.5px rgba(244, 67, 54, 0.6)",
       }}
     >
       <Typography sx={{ fontSize: 30 }} fontWeight="bold" mb={3} color="#f44336">

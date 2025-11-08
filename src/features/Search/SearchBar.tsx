@@ -30,6 +30,7 @@ const SearchBar = () => {
         display: "flex",
         alignItems: "center",
         width: "80%",
+        maxWidth:'md',
         borderRadius: 5,
       }}
     >

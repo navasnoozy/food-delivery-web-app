@@ -1,13 +1,15 @@
-// router.tsx
 import { createBrowserRouter } from "react-router";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Layout from "./Layout";
-import { HomePage } from "./pages/Home/HomePage";
+
 import SignupForm from "./features/Auth/pages/SignupForm";
 import SigninPage from "./features/Auth/pages/SigninPage";
-import RestaurantPage from "./pages/Restaurant/RestaurantPage";
+import RestaurantPage from "./pages/RestaurantPage";
 
-
+import FoodPage from "./pages/FoodPage";
+import CartPage from "./pages/CartPage";
+import { HomePage } from "./pages/HomePage";
+import RestaurantDetailsPage from "./pages/RestaurantDetailsPage";
 
 const router = createBrowserRouter([
   {
@@ -31,8 +33,18 @@ const router = createBrowserRouter([
         errorElement: <ErrorBoundary />,
       },
       {
-        path: "signin",
-        element: <SigninPage />,
+        path: "restaurant/:name",
+        element: <RestaurantDetailsPage />,
+        errorElement: <ErrorBoundary />,
+      },
+      {
+        path: "food/:id",
+        element: <FoodPage />,
+        errorElement: <ErrorBoundary />,
+      },
+      {
+        path: "cart",
+        element: <CartPage />,
         errorElement: <ErrorBoundary />,
       },
     ],
