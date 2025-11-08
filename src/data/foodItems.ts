@@ -6,6 +6,7 @@ export const foodItems = [
     category: "Breakfast",
     price: 120,
     restaurant: {
+      id: 1,
       name: "Nadan Feast",
       image: "nadanfeast",
     },
@@ -17,6 +18,7 @@ export const foodItems = [
     category: "Breakfast",
     price: 150,
     restaurant: {
+      id: 2,
       name: "Tharavadu Kitchen",
       image: "tharavadukitchen",
     },
@@ -28,6 +30,7 @@ export const foodItems = [
     category: "Non-Vegetarian",
     price: 320,
     restaurant: {
+      id: 3,
       name: "Meen By Chef Pillai",
       image: "meenbychefpillai",
     },
@@ -39,6 +42,7 @@ export const foodItems = [
     category: "Bread",
     price: 80,
     restaurant: {
+      id: 4,
       name: "Rasoi Fort Kochi",
       image: "rasoifortkochi",
     },
@@ -50,6 +54,7 @@ export const foodItems = [
     category: "Non-Vegetarian",
     price: 280,
     restaurant: {
+      id: 5,
       name: "Boche Toddy Pub",
       image: "bochetoddypub",
     },
@@ -61,6 +66,7 @@ export const foodItems = [
     category: "Non-Vegetarian",
     price: 200,
     restaurant: {
+      id: 6,
       name: "Cochin Trader Bar",
       image: "cochintraderbar",
     },
@@ -72,6 +78,7 @@ export const foodItems = [
     category: "Non-Vegetarian",
     price: 260,
     restaurant: {
+      id: 7,
       name: "Lila's Kitchen",
       image: "lilaskitchen",
     },
@@ -83,6 +90,7 @@ export const foodItems = [
     category: "Rice",
     price: 220,
     restaurant: {
+      id: 8,
       name: "Alif Biryani",
       image: "alifbiryani",
     },
@@ -94,8 +102,9 @@ export const foodItems = [
     category: "Vegetarian Feast",
     price: 499,
     restaurant: {
+      id: 9,
       name: "Grand Entree",
-      image: "grandentree",
+      image: "gokuloottupura",
     },
   },
   {
@@ -105,6 +114,7 @@ export const foodItems = [
     category: "Vegetarian",
     price: 110,
     restaurant: {
+      id: 10,
       name: "Gokul Oottupura",
       image: "gokuloottupura",
     },
@@ -116,6 +126,7 @@ export const foodItems = [
     category: "Breakfast",
     price: 100,
     restaurant: {
+      id: 11,
       name: "Sree Krishna Inn",
       image: "sreekrishnainn",
     },
@@ -127,6 +138,7 @@ export const foodItems = [
     category: "Non-Vegetarian",
     price: 240,
     restaurant: {
+      id: 12,
       name: "Hotel Taj",
       image: "hoteltaj",
     },
@@ -138,6 +150,7 @@ export const foodItems = [
     category: "Non-Vegetarian",
     price: 180,
     restaurant: {
+      id: 13,
       name: "United Coconut Restaurant",
       image: "unitedcoconutrestaurant",
     },
@@ -149,6 +162,7 @@ export const foodItems = [
     category: "Vegetarian",
     price: 95,
     restaurant: {
+      id: 10,
       name: "Gokul Oottupura",
       image: "gokuloottupura",
     },
@@ -160,6 +174,7 @@ export const foodItems = [
     category: "Dessert",
     price: 60,
     restaurant: {
+      id: 1,
       name: "Nadan Feast",
       image: "nadanfeast",
     },
@@ -171,8 +186,9 @@ export const foodItems = [
     category: "Non-Vegetarian",
     price: 210,
     restaurant: {
+      id: 14,
       name: "Tharavadu Restaurant",
-      image: "tharavadorestaurant",
+      image: "tharavadurestaurant",
     },
   },
   {
@@ -182,6 +198,7 @@ export const foodItems = [
     category: "Snack",
     price: 70,
     restaurant: {
+      id: 15,
       name: "Ente Thattukada",
       image: "entethattukada",
     },
@@ -193,6 +210,7 @@ export const foodItems = [
     category: "Vegetarian",
     price: 90,
     restaurant: {
+      id: 16,
       name: "Sadhya Bhavan",
       image: "sadhyabhavan",
     },
@@ -204,6 +222,7 @@ export const foodItems = [
     category: "Vegetarian",
     price: 85,
     restaurant: {
+      id: 16,
       name: "Sadhya Bhavan",
       image: "sadhyabhavan",
     },
@@ -215,6 +234,7 @@ export const foodItems = [
     category: "Snack",
     price: 40,
     restaurant: {
+      id: 17,
       name: "Muthassi's Magic",
       image: "muthassismagic",
     },

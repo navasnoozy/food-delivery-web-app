@@ -13,7 +13,10 @@ import Typography from "@mui/material/Typography";
 import User from "./User";
 import AppLink from "../CustomLink";
 
-const pages = ["Restaurants", "Pricing"];
+const pages = [
+  { name: "Restaurants", path: "/restaurant" },
+  { name: "Pricing", path: "/pricing" },
+];
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -30,13 +33,11 @@ function Navbar() {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          {/* Desktop Logo */}
+          {/* Desktop Logo - FIXED: Use Typography directly with AppLink as component */}
           <RestaurantIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="#"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -44,15 +45,14 @@ function Navbar() {
               fontWeight: 700,
               letterSpacing: ".3rem",
               color: "inherit",
-              textDecoration: "none",
             }}
           >
-               <AppLink sx={{ color: "white" }}  underline="none" to={"/"}>
+            <AppLink sx={{ color: "white" }} underline="none" to={"/"}>
               Have@Home
             </AppLink>
           </Typography>
 
-          {/* Mobile Menu Button */}
+
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton size="large" aria-label="menu" aria-controls="menu-appbar" aria-haspopup="true" onClick={handleOpenNavMenu} color="inherit">
               <MenuIcon />
@@ -68,20 +68,23 @@ function Navbar() {
               sx={{ display: { xs: "block", md: "none" } }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: "center" }}>{page}</Typography>
+                <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                  <AppLink
+                    to={page.path}
+                    underline="none"
+                    sx={{ color: "inherit", width: "100%", textAlign: "center" }}
+                  >
+                    <Typography sx={{ textAlign: "center" }}>{page.name}</Typography>
+                  </AppLink>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
 
-          {/* Mobile Logo */}
           <RestaurantIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href="#"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -90,19 +93,23 @@ function Navbar() {
               fontWeight: 700,
               letterSpacing: ".3rem",
               color: "inherit",
-              textDecoration: "none",
             }}
           >
-             <AppLink sx={{ color: "white" }}  underline="none" to={"/"}>
+            <AppLink sx={{ color: "white" }} underline="none" to={"/"}>
               Have@Home
             </AppLink>
           </Typography>
 
-          {/* Desktop Navigation Buttons */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <Button key={page} onClick={handleCloseNavMenu} sx={{ my: 2, color: "white", display: "block" }}>
-                {page}
+              <Button
+                key={page.name}
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: "white", display: "block" }}
+                component={AppLink}
+                to={page.path}
+              >
+                {page.name}
               </Button>
             ))}
           </Box>

@@ -1,22 +1,18 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { foodItems } from "../../data/foodItems";
-import type { FoodItem, Restaurant } from "../../types/food";
+import type { FoodItemType, RestaurantType } from "../../types/food";
 
 interface FoodState {
-  allFoods: FoodItem[];
-  filteredFoods: FoodItem[];
-  restaurants: Restaurant[];
+  allFoods: FoodItemType[];
+  filteredFoods: FoodItemType[];
+  restaurants: RestaurantType[];
   selectedRestaurant?: string;
 }
 
 const initialState: FoodState = {
   allFoods: [...foodItems],
   filteredFoods: [...foodItems],
-  restaurants: Array.from(
-    new Map(
-      foodItems.map((item) => [item.restaurant.name, item.restaurant])
-    ).values()
-  ),
+  restaurants: Array.from(new Map(foodItems.map((item) => [item.restaurant.name, item.restaurant])).values()),
   selectedRestaurant: undefined,
 };
 
@@ -29,39 +25,22 @@ const foodSlice = createSlice({
       state.selectedRestaurant = undefined;
     },
 
-    filterByPrice: (
-      state,
-      action: PayloadAction<{ min: number; max: number }>
-    ) => {
+    filterByPrice: (state, action: PayloadAction<{ min: number; max: number }>) => {
       const { min, max } = action.payload;
-      state.filteredFoods = state.allFoods.filter(
-        (item) => item.price >= min && item.price <= max
-      );
+      state.filteredFoods = state.allFoods.filter((item) => item.price >= min && item.price <= max);
       state.selectedRestaurant = undefined;
     },
 
     sortByCategory: (state, action: PayloadAction<"asc" | "desc">) => {
-      state.filteredFoods = [...state.filteredFoods].sort((a, b) =>
-        action.payload === "asc"
-          ? a.category.localeCompare(b.category)
-          : b.category.localeCompare(a.category)
-      );
+      state.filteredFoods = [...state.filteredFoods].sort((a, b) => (action.payload === "asc" ? a.category.localeCompare(b.category) : b.category.localeCompare(a.category)));
     },
 
     getAllRestaurants: (state) => {
-      state.restaurants = Array.from(
-        new Map(
-          state.allFoods.map((item) => [item.restaurant.name, item.restaurant])
-        ).values()
-      );
+      state.restaurants = Array.from(new Map(state.allFoods.map((item) => [item.restaurant.name, item.restaurant])).values());
     },
 
     filterByRestaurant: (state, action: PayloadAction<string>) => {
-      state.filteredFoods = state.allFoods.filter(
-        (item) =>
-          item.restaurant.name.toLowerCase() ===
-          action.payload.toLowerCase()
-      );
+      state.filteredFoods = state.allFoods.filter((item) => item.restaurant.name.toLowerCase() === action.payload.toLowerCase());
       state.selectedRestaurant = action.payload;
     },
 
@@ -73,10 +52,7 @@ const foodSlice = createSlice({
       }
 
       state.filteredFoods = state.allFoods.filter(
-        (item) =>
-          item.name.toLowerCase().includes(query) ||
-          item.category.toLowerCase().includes(query) ||
-          item.restaurant.name.toLowerCase().includes(query)
+        (item) => item.name.toLowerCase().includes(query) || item.category.toLowerCase().includes(query) || item.restaurant.name.toLowerCase().includes(query)
       );
     },
   },

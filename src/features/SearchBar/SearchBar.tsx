@@ -17,6 +17,8 @@ const SearchBar = () => {
   };
 
   const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
+    console.log('chekcing');
+    
     if (e.key === "Enter") handleSearch();
   };
 
