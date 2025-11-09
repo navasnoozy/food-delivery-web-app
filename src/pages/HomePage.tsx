@@ -3,6 +3,7 @@ import Foodlist from "../components/Foodlist";
 import SwiperBanner from "../features/Banner/SwiperBanner";
 import SearchBar from "../features/Search/SearchBar";
 import SortComponent from "../features/Sort/SortComponent";
+import ScrollingCategories from "../components/Animations/ScrollingCategories";
 
 export const HomePage = () => {
   return (
@@ -15,6 +16,7 @@ export const HomePage = () => {
           <Foodlist />
         </Container>
       </Box>
+       <ScrollingCategories />
     </>
   );
 };
