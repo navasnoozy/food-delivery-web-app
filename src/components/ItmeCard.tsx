@@ -57,7 +57,6 @@ const ItemCard = ({ id, imageUrl, itemName, price, restaurantName }: Props) => {
   return (
     <Card
       sx={{
-        maxWidth: 345,
         borderRadius: 5,
         cursor: "pointer",
         transition: "transform 0.2s",
@@ -67,7 +66,7 @@ const ItemCard = ({ id, imageUrl, itemName, price, restaurantName }: Props) => {
     >
       <CardMedia sx={{ borderRadius: 5 }} component="img" alt={itemName || restaurantName} height="140" image={imageUrl || "/foodImages/foodplaceholder.png"} />
       <CardContent>
-        <Typography gutterBottom variant="h6" sx={{ textWrap: "nowrap" }}>
+        <Typography gutterBottom  sx={{ textWrap: "nowrap" }}>
           {itemName || restaurantName}
         </Typography>
       </CardContent>

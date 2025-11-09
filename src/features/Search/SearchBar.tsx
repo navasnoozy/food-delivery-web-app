@@ -6,11 +6,10 @@ import IconButton from "@mui/material/IconButton";
 import InputBase from "@mui/material/InputBase";
 import Paper from "@mui/material/Paper";
 import { useState } from "react";
-import { searchFoods } from "../../store/slice/foodSlice";
+import { getAllFoods, searchFoods } from "../../store/slice/foodSlice";
 import type { KeyboardEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import GlowingBorder from "../../components/Animations/GlowingBorder";
-
 
 const MotionPaper = motion(Paper);
 const MotionIconButton = motion(IconButton);
@@ -28,20 +27,15 @@ const SearchBar = () => {
 
   const handleClear = () => {
     setQuery("");
+    dispatch(getAllFoods());
   };
-
   const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") handleSearch();
   };
 
   return (
     <div style={{ margin: "20px auto", width: "80%", maxWidth: "900px" }}>
-      <GlowingBorder 
-        isActive={true} 
-        borderRadius={40} 
-        glowColor="#d946ef"
-
-      >
+      <GlowingBorder isActive={true} borderRadius={40} glowColor="#d946ef">
         <MotionPaper
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -53,36 +47,29 @@ const SearchBar = () => {
             width: "100%",
             borderRadius: 8,
             transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-            boxShadow: isFocused 
-              ? "0 8px 24px rgba(0, 0, 0, 0.12)" 
-              : "0 2px 8px rgba(0, 0, 0, 0.08)",
+            boxShadow: isFocused ? "0 8px 24px rgba(0, 0, 0, 0.12)" : "0 2px 8px rgba(0, 0, 0, 0.08)",
             border: "2px solid transparent",
             transform: isFocused ? "scale(1.02)" : "scale(1)",
             backgroundColor: "background.paper",
           }}
         >
-          <motion.div
-            initial={{ scale: 1 }}
-            animate={{ scale: isFocused ? 1.1 : 1 }}
-            transition={{ duration: 0.2 }}
-            style={{ display: "flex", alignItems: "center", paddingLeft: 8 }}
-          >
-            <SearchIcon 
-              sx={{ 
+          <motion.div initial={{ scale: 1 }} animate={{ scale: isFocused ? 1.1 : 1 }} transition={{ duration: 0.2 }} style={{ display: "flex", alignItems: "center", paddingLeft: 8 }}>
+            <SearchIcon
+              sx={{
                 color: isFocused ? "primary.main" : "action.active",
-                transition: "color 0.3s ease"
-              }} 
+                transition: "color 0.3s ease",
+              }}
             />
           </motion.div>
 
           <InputBase
-            sx={{ 
-              ml: 2, 
+            sx={{
+              ml: 2,
               flex: 1,
               "& input::placeholder": {
                 transition: "opacity 0.3s ease",
                 opacity: isFocused ? 0.7 : 0.5,
-              }
+              },
             }}
             placeholder="Search for food, category or restaurant"
             value={query}
@@ -97,23 +84,23 @@ const SearchBar = () => {
               <motion.div
                 key="clear-button"
                 initial={{ opacity: 0, scale: 0.5, x: -10 }}
-                animate={{ 
-                  opacity: 1, 
-                  scale: 1, 
+                animate={{
+                  opacity: 1,
+                  scale: 1,
                   x: 0,
                   transition: {
                     duration: 0.2,
                     ease: [0.4, 0, 0.2, 1],
-                  }
+                  },
                 }}
-                exit={{ 
-                  opacity: 0, 
-                  scale: 0.5, 
+                exit={{
+                  opacity: 0,
+                  scale: 0.5,
                   x: -10,
                   transition: {
                     duration: 0.15,
                     ease: [0.4, 0, 1, 1],
-                  }
+                  },
                 }}
               >
                 <MotionIconButton
@@ -131,13 +118,13 @@ const SearchBar = () => {
           </AnimatePresence>
 
           <Divider sx={{ height: 40, m: 0.5 }} orientation="vertical" />
-          
+
           <MotionIconButton
             type="button"
             sx={{ p: "10px" }}
             aria-label="search"
             onClick={handleSearch}
-            whileHover={{ 
+            whileHover={{
               scale: 1.1,
               backgroundColor: "action.hover",
             }}
@@ -153,11 +140,11 @@ const SearchBar = () => {
                 ease: "easeInOut",
               }}
             >
-              <SearchIcon 
-                sx={{ 
+              <SearchIcon
+                sx={{
                   color: query ? "primary.main" : "action.active",
-                  transition: "color 0.3s ease"
-                }} 
+                  transition: "color 0.3s ease",
+                }}
               />
             </motion.div>
           </MotionIconButton>

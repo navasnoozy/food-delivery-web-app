@@ -12,7 +12,7 @@ const Foodlist = () => {
     <Container>
       <Grid container spacing={2} maxWidth="xl">
         {filteredFood.map((item: FoodItemType) => (
-          <Grid key={item.id} size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
+          <Grid className="////squeen" key={item.id} size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
             <ItemCard id={item.id} imageUrl={`/foodImages/${item.image}.png`} itemName={item.name} price={item.price} />
           </Grid>
         ))}
